@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  font-family: 'Helvetica Neue', sans-serif;
+  background: #f9f5ef;
+  color: #333;
+}
+header {
+  background: #ffecd1;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav a {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+.hero {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+.contract-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+.contract-card {
+  background: #fff;
+  border: 2px solid #ffd6a5;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.05);
+}
