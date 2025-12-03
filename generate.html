@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Generate Contract</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <script defer src="scripts/generate.js"></script>
+</head>
+<body class="generate-page">
+  <h1>Generate a New Contract</h1>
+  <form id="contractForm">
+    <label>Your Name <input type="text" name="giverName" required></label>
+
+    <label>You are a:
+      <select name="role" required>
+        <option value="giver">Giver</option>
+        <option value="receiver">Receiver</option>
+      </select>
+    </label>
+
+    <label>Receiver Name <input type="text" name="receiverName" required></label>
+
+    <label>Task Description <input type="text" name="task" required></label>
+
+    <label>Duration <input type="text" name="duration" placeholder="e.g. 3 weeks"></label>
+
+    <label>Emotional Boundaries <textarea name="boundaries"></textarea></label>
+
+    <label>Communication Method <input type="text" name="communication"></label>
+
+    <label>Optional Notes <textarea name="notes"></textarea></label>
+
+    <button type="submit">Generate Contract</button>
+  </form>
+</body>
+</html>
