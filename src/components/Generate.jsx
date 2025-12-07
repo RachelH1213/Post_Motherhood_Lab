@@ -103,7 +103,7 @@ export default function Generate() {
         fontFamily: "'Courier New', monospace", color: '#ffcccc'
       }}>
         
-        {/* === STEP 1: 角色选择 (完全保持你提供的代码样式) === */}
+        {/* === STEP 1: 角色选择 === */}
         {step === 1 && (
           <div style={{ animation: 'fadeIn 1s' }}>
             <h2 style={{ textAlign: 'center', fontSize: '1.5rem', marginBottom: '40px', letterSpacing: '4px', textShadow: '0 0 10px #ff0055' }}>
