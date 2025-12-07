@@ -1,16 +1,58 @@
+/* 全局隐藏系统鼠标 */
+* {
+  cursor: none !important; /* 强制隐藏 */
+}
+
+/* 恢复某些特殊情况，或者保持隐藏 */
+body, html, a, button, input {
+  cursor: none !important;
+}
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
+  /* 关键修复：确保背景铺满全屏，否则没内容时就是白屏 */
+  min-height: 100vh; 
   background: linear-gradient(to bottom right, #ffd4d5, #ffc0cb, #d69098);
+  background-attachment: fixed; /* 让背景固定，不随滚动条滚动 */
   color: #3a1e2c;
 }
 
-.centered {
+.centered, .centered-top {
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 100vh;
+}
+
+/* 之前缺失的按钮样式 */
+.add-btn {
+  background: #600034;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  height: 100vh;
+  text-decoration: none;
+  font-size: 2rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  border: none;
+}
+
+/* 让 Generate 页面更好看的容器 */
+#stepForm {
+  background: white;
+  padding: 40px;
+  margin-top: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(96, 0, 52, 0.1);
+  max-width: 600px;
+  width: 90%;
+}
+
+.form-step {
+  margin-bottom: 20px;
 }
 
 .enter-btn, .btn, button {
@@ -21,12 +63,148 @@ body {
   border-radius: 12px;
   font-size: 1rem;
   cursor: pointer;
+  margin: 5px;
 }
 
-form {
+/* Gallery 布局修正 */
+.gallery-page header {
   display: flex;
-  flex-direction: column;
-  gap: 12px;
-  max-width: 500px;
-  margin: 40px auto;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#gallery {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* 沉浸式房间背景 */
+.immersive-room {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at center, #ffd4d5 0%, #600034 100%);
+  overflow: hidden;
+  perspective: 1000px; /* 开启 3D 视角 */
+}
+
+/* 漂浮的标题 */
+.floating-title {
+  font-family: 'Courier New', monospace;
+  font-size: 3rem;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255,255,255,0.5);
+  animation: float 6s ease-in-out infinite;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.subtitle {
+  color: rgba(255,255,255,0.8);
+  text-align: center;
+  margin-bottom: 4rem;
+  font-style: italic;
+}
+
+
+/* 混乱画廊布局 */
+.gallery-chaos {
+  min-height: 100vh;
+  background: #f4f1ea; /* 纸张色 */
+  padding: 20px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.chaos-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 20px;
+  mix-blend-mode: difference; /* 这种混合模式会让文字颜色反转，很酷 */
+  color: white;
+}
+
+/* 那个加号变成一个漂浮的球 */
+.add-orb {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #ff0055, #600034);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  text-decoration: none;
+  box-shadow: 0 0 20px rgba(96, 0, 52, 0.4);
+  transition: transform 0.3s;
+}
+
+.add-orb:hover {
+  transform: scale(1.2) rotate(90deg);
+}
+
+/* 容器使用 flex wrap 但允许重叠感 */
+.chaos-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 像便利贴或拍立得的卡片 */
+.chaos-card {
+  background: white;
+  width: 250px;
+  padding: 20px;
+  box-shadow: 5px 10px 20px rgba(0,0,0,0.1);
+  transition: all 0.4s ease;
+  cursor: pointer;
+  position: relative;
+  /* 初始稍微模糊，鼠标放上去变清晰 */
+  filter: blur(0.5px) grayscale(0.2);
+  animation: floatCard 6s ease-in-out infinite;
+}
+
+.chaos-card:hover {
+  transform: scale(1.1) rotate(0deg) !important; /* 鼠标放上去变大并摆正 */
+  z-index: 10;
+  filter: none;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+/* 顶部的图钉效果 */
+.pin {
+  width: 12px;
+  height: 12px;
+  background: rgba(0,0,0,0.2);
+  border-radius: 50%;
+  margin: 0 auto 15px auto;
+  box-shadow: inset 1px 1px 2px black;
+}
+
+.chaos-poem {
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 10px;
+}
+
+@keyframes floatCard {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
 }

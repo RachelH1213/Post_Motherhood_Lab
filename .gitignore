@@ -1,0 +1,31 @@
+# dependencies
+node_modules/
+
+# production build
+dist/
+
+# local env files
+.env
+.env.local
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS system files
+.DS_Store
+Thumbs.db
+
+# Vite cache
+.vite/
+
+# VS Code settings
+.vscode/
+
+# macOS 文件（保险起见）
+*.DS_Store
+
+# build artifacts
+*.log
+*.tsbuildinfo
